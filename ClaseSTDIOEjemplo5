@@ -1,0 +1,32 @@
+#include <fstream>
+#include <iostream>
+
+int main() {
+    /*
+    std::ios::in: Abre el archivo para lectura.
+    std::ios::out: Abre el archivo para escritura.
+    std::ios::app: Agrega datos al final del archivo (append).
+    std::ios::trunc: Trunca el archivo a longitud cero si existe.
+    std::ios::binary: Abre el archivo en modo binario.
+    */
+
+    std::fstream archivo("datos.txt", std::ios::in | std::ios::out | std::ios::app);
+    if (!archivo) {
+        std::cout << "Error al abrir el archivo." << std::endl;
+        return 1;
+    }
+    
+    // Escritura en el archivo
+    archivo << "Nueva línea agregada al archivo.\n";
+    
+    // Volver al inicio del archivo para leer
+    archivo.seekg(0);
+    
+    std::string linea;
+    while (std::getline(archivo, linea)) {
+        std::cout << linea << std::endl;
+    }
+    
+    archivo.close();
+    return 0;
+}
