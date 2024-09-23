@@ -1,0 +1,15 @@
+#include <iostream>
+
+int main() {
+    // IMPRIMIR UN SOLO VALOR
+    std::cout << "Hola, C++!" << std::endl;
+    std::cout << "El valor de x es: " << 42 << std::endl;
+
+    // IMPRIMIR MÁS DE UN VALOR EN EL MISMO MENSAJE
+    std::string nombre = "Ana";
+    int edad = 28;
+    double salario = 3500.75;
+    
+    std::cout << "Nombre: " << nombre << ", Edad: " << edad << " años, Salario: $" << salario << std::endl;
+    return 0;
+}
