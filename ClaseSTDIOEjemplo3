@@ -1,0 +1,9 @@
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    double num = 123.456789;
+    std::cout << "Sin setprecision: " << num << std::endl;
+    std::cout << "Con setprecision(3): " << std::fixed << std::setprecision(3) << num << std::endl;
+    return 0;
+}
