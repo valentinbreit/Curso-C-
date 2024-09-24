@@ -11,7 +11,8 @@ int main() {
     */
 
     std::fstream archivo("datos.txt", std::ios::in | std::ios::out | std::ios::app);
-    if (!archivo) {
+    // Sirve para, asegurarnos de que "archivo" se haya inicializado bien.
+    if (!archivo) // if (archivo == Null) {
         std::cout << "Error al abrir el archivo." << std::endl;
         return 1;
     }
