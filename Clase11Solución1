@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Auto{
+    private:
+        string marca;
+        string modelo;
+        float velMaxima = 0;
+    public:
+        /* Constructor */
+        Auto(){
+            /* Constructor sin necesidad de parametros */
+        }
+        Auto(string ma, string mo){
+            marca = ma;
+            modelo = mo;
+        }
+
+        /* getters */
+        string getMarca(){ return marca; }
+        string getModelo(){ return modelo; }
+        float getVelMaxima(){ return velMaxima; }
+        /* setters */
+        void setMarca(string m) { marca = m; }
+        void setModelo(string m) { modelo = m; }
+        void setVelMaxima(float vel) { velMaxima = vel; }
+
+
+        void acelerar(float acelero){
+            velMaxima += acelero;
+        }
+
+        void frenar(float freno){
+            if (velMaxima >= freno){
+                velMaxima -= freno;
+            }
+            else{
+                velMaxima = 0;
+            }
+        }
+
+};
+
+int main() {
+    Auto a;
+    a.setMarca("Audi");
+    a.setModelo("c4");
+    a.setVelMaxima(120);
+    a.acelerar(10);
+    cout << "vel Maxima: " << a.getVelMaxima() << endl;
+    a.frenar(25);
+    cout << "vel Maxima: " << a.getVelMaxima() << endl;
+    a.frenar(150);
+    cout << "vel Maxima: " << a.getVelMaxima() << endl;
+    return 0;
+}
