@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Persona{
+    private:
+        string nombre;
+    public:
+        /*Constructor con nombre*/
+        Persona(string n){
+            nombre = n;
+        }
+
+        /*setter*/
+        void setNombre(string n){ nombre = n; }
+        /*getters*/
+        string getNombre(){ return nombre; }
+};
+
+
+class Empleado : public Persona {
+    private:
+        string puesto;
+        float salario;
+    public:
+        /*Constructor*/
+        /* con : Persona(n) envío el parametro a la clase padre para poder inicializarlo con su constructor*/
+        Empleado(string p, float s,string n) : Persona(n){
+            puesto = p;
+            salario = s;
+        }
+
+        /*setters*/
+        void setPuesto(string p){ puesto = p; }
+        void setSalario(float s){ salario = s; }
+        /*getters*/
+        string getPuesto(){ return puesto; }
+        float getSalario(){ return salario; }
+
+};
+
+int main() {
+    Empleado emp("Gerente", 500, "Juan");
+    cout << emp.getPuesto() << " " << emp.getSalario() << " " << emp.getNombre();
+    return 0;
+}
