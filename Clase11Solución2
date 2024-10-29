@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class cuentaBancaria{
+    private:
+        float saldoActual;
+    
+        /*setters privados porque nadie puede modificar mi saldo por fuera*/
+        void setSaldoActual(float dineroIngreso){ saldoActual = dineroIngreso; };
+    public:
+        /* constructor vacío */
+        cuentaBancaria(){
+            setSaldoActual(0);
+        }
+
+        /*getters publicos pórque cualquiera puede ver mi saldo*/
+        float getSaldoActual() { return saldoActual; };
+
+        /*metodos pedidos*/
+        void depositar(float dineroIngreso){
+            saldoActual += dineroIngreso;
+        }
+
+        float retirar(float dineroRetiro){
+            if (getSaldoActual() >= dineroRetiro){
+                saldoActual -= dineroRetiro;
+            }
+            else{
+                cout << "Dinero insuficiente, solo se puede retirar: " << (dineroRetiro - getSaldoActual()) << endl;
+                setSaldoActual(0);
+            }
+        }
+
+};
+
+int main() {
+    cuentaBancaria nuevaCuenta;
+    nuevaCuenta.depositar(500);
+    cout << "dinero actual en la cuenta: "<<nuevaCuenta.getSaldoActual() << endl;
+    nuevaCuenta.retirar(200);
+    cout << "dinero actual en la cuenta: "<<nuevaCuenta.getSaldoActual() << endl;
+    nuevaCuenta.retirar(400);
+    cout << "dinero actual en la cuenta: "<<nuevaCuenta.getSaldoActual() << endl;
+    return 0;
+}
