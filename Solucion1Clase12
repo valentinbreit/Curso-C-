@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    int a = 10;
+    int *p = &a;
+    cout << "El valor de a antes de modificar es: " << *p << endl;
+    *p = 25;
+    cout << "El valor de a despues de moficiar es: " << *p << endl;
+    return 0;
+}
