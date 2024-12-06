@@ -1,0 +1,12 @@
+#include <iostream>
+#include <cerrno>
+#include <cstring>
+using namespace std;
+
+int main() {
+    FILE* archivo = fopen("archivo_inexistente.txt", "r");
+    if (archivo == nullptr) {
+        cout << "Error al abrir el archivo: " << strerror(errno) << endl;
+    }
+    return 0;
+}
