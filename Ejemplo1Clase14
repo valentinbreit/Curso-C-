@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+// Función que retorna un código de error
+int dividir(int a, int b, int& resultado) {
+    if (b == 0) {
+        return -1; // Código de error para división por cero
+    }
+    resultado = a / b;
+    return 0; // Indica éxito
+}
+
+int main() {
+    int resultado;
+    int error = dividir(10, 0, resultado);
+
+    if (error == -1) {
+        cout << "Error: No se puede dividir por cero." << endl;
+    } else {
+        cout << "Resultado: " << resultado << endl;
+    }
+    return 0;
+}
