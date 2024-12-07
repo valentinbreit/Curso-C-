@@ -1,0 +1,24 @@
+#include <iostream>
+#include <stdexcept>
+using namespace std;
+
+void calcular(int a, int b) {
+    if (b == 0) {
+        throw runtime_error("División por cero");
+    }
+    if (a < 0 || b < 0) {
+        throw logic_error("Números negativos no permitidos");
+    }
+    cout << "Resultado: " << a / b << endl;
+}
+
+int main() {
+    try {
+        calcular(-10, 2);
+    } catch (const runtime_error& e) {
+        cout << "Error de ejecución: " << e.what() << endl;
+    } catch (const logic_error& e) {
+        cout << "Error lógico: " << e.what() << endl;
+    }
+    return 0;
+}
