@@ -1,0 +1,32 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    // Escribir en un archivo
+    ofstream salida("archivo.txt");
+    if (!salida) {
+        cerr << "No se pudo abrir el archivo para escribir.\n";
+        return 1;
+    }
+    salida << "Primera línea del archivo.\n";
+    salida << "Segunda línea del archivo.\n";
+    salida.close();
+
+    // Leer desde el archivo
+    ifstream entrada("archivo.txt");
+    if (!entrada) {
+        cerr << "No se pudo abrir el archivo para leer.\n";
+        return 1;
+    }
+
+    string linea;
+    while (std::getline(entrada, linea)) {
+        cout << linea << std::endl;
+    }
+    entrada.close();
+
+    return 0;
+}
